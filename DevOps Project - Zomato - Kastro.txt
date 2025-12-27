@@ -33,10 +33,13 @@ sudo apt-get update -y
 sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins
+username = nihak password NihaK10#
+to allow permisiions chmod -x filename this gives execuatble permisiions.
 
 Verifiy Jenkins installation: jenkins --version
 
 5.1. Open Port No. 8080 for VM and access Jenkins
+install plugins---pipeline stage view,Eclipse Temurin installerVersion,SonarQube Scanner,Docker PipelineVersion,Docker, Docker Commons, Docker APIVersion, docker-build-step, Email Extension Template, OWASP Dependency-Check, NodeJS, Prometheus metrics, 
 5.2. Setup Jenkins by following the necessary steps
 
 6. Install Docker on Ubuntu
@@ -62,7 +65,7 @@ sudo systemctl status docker
 
 Verifiy Docker installation: docker --version
 
-7. Install Trivy on Ubuntu
+7. Install Trivy on Ubuntu for file scanning 
 (Reference URL for commands: https://aquasecurity.github.io/trivy/v0.55/getting-started/installation/)
 sudo apt-get install wget apt-transport-https gnupg
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
@@ -72,25 +75,39 @@ sudo apt-get install trivy
 
 Verifiy Trivy installation: trivy --version
 
-8. Install Docker Scout
+8. Install Docker Scout for image analysis of image
 Make sure to Login to DockerHub account in browser
+curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+chmod +x ~/.docker/cli-plugins/docker-scout        this gives executable permissions after download
+
 <Follow the process as explained in the video>
 
+
 9. Install SonarQube using Docker
-$ docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
-$ docker ps (You can see SonarQube container)
+docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+docker ps (You can see SonarQube container)
 
 <Follow the process as explained in the video>
 
 10. Installation of Plugins in Jenkins
 Install below plugins:
+install plugins---pipeline stage view,Eclipse Temurin installerVersion,SonarQube Scanner,Docker PipelineVersion,Docker, Docker Commons, Docker APIVersion, docker-build-step, Email Extension Template, OWASP Dependency-Check, NodeJS, Prometheus metrics, 
 <Follow the process as explained in the video>
-
+eclipse 
 11. SonarQube configuration in Jenkins
+generate sonarqube token--------sonarqube homepage-administration<security<users<update token icon
+squ_e7f400298a294e353741ec47821fd66a760a3b48
+security<credentials<global
 <Follow the process as explained in the video>
 
 11.1. Tools Configuration in Jenkins
 <Follow the process as explained in the video>
+JDK installations
+SonarQube Scanner installations
+NodeJS installations
+Dependency-Check installations
+Docker installations
+
 
 11.2. Configuration of SonarQube Token in Jenkins
 <Follow the process as explained in the video>
@@ -99,14 +116,20 @@ Lets create another credentials for DockerHub. This is being done because, as so
 <Follow the process as explained in the video>
 
 11.3 Configuration of Email notification in Jenkins
-As soon as the build happens, i need to get an email notification to do that we have to configure our email.
+As soon as the build happens, i need to get an email notification to do that we have to configure our email.shcfksrutxcyfrqu
+add email credentials in jenkins
 <Follow the process as explained in the video>
 
 
 12. System Configuration in Jenkins
+SonarQube installations added
+E-mail Notification
+Extended E-mail Notification
 <Follow the process as explained in the video>
 
 13. Create webhook in SonarQube
+configuration<webhooks<create
+add sonarqube-webhook/ at the end of url of jenikns
 <Follow the process as explained in the video>
 
 14. Create Pipeline Job
@@ -713,6 +736,7 @@ Kind Request:
 Once after you have successfully deployed the App, kindly share your experience on LinkedIn by Tagging me and also provide the YouTube link of this project in your post, as it helps others to access the video quickly. 
 ========================================================================================================
 												HAPPY LEARNING
+
 
 
 
